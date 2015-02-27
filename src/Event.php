@@ -68,11 +68,11 @@ class Event
 
 	/**
 	 * Trigger on event
-     *
+	 *
 	 * @param  string $eventName event name
 	 * @param  array  $params    params to callback function
-     *
-     * @return mixed
+	 *
+	 * @return mixed
 	 */
 	public function trigger($eventName = '', $params = array())
 	{
@@ -91,7 +91,7 @@ class Event
 
 	/**
 	 * Return all events
-     *
+	 *
 	 * @return array events array
 	 */
 	public function table()
