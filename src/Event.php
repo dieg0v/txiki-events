@@ -33,18 +33,18 @@ class Event
 		}
 
 		if (!is_callable($callback)) {
-	      throw new EventException("Invalid event callback");
+			throw new EventException("Invalid event callback");
 		}
 
-        $eventName = strtolower($eventName);
+		$eventName = strtolower($eventName);
 
-        if(array_key_exists($eventName, $this->events)){
-            throw new EventException("Duplicate event name");
-        }
+		if(array_key_exists($eventName, $this->events)){
+			throw new EventException("Duplicate event name");
+		}
 
-	    $this->events[$eventName] = $callback;
+		$this->events[$eventName] = $callback;
 
-	    return true;
+		return true;
 	}
 
 	/**
@@ -78,11 +78,11 @@ class Event
 	{
 		$eventName = strtolower($eventName);
 
-    	if(!array_key_exists($eventName, $this->events)){
+		if(!array_key_exists($eventName, $this->events)){
 			throw new EventException("No event register");
 		}
 
-    	$callback = $this->events[$eventName];
+		$callback = $this->events[$eventName];
 
 		return Call::dispatch(
 			new CallableObject ($callback, $params)
