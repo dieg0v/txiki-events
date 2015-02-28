@@ -9,8 +9,8 @@ use Txiki\Events\Event;
  */
 class EventTest extends \PHPUnit_Framework_TestCase
 {
-	public function testConstructor()
-	{
-		$this->assertEquals(true, true);
-	}
+    public function testConstructor()
+    {
+        $this->assertEquals(true, true);
+    }
 }

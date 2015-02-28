@@ -7,5 +7,6 @@ use Exception;
 /**
  * Event Exception Class
  */
-class EventException extends Exception {
+class EventException extends Exception
+{
 }
