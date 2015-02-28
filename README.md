@@ -18,6 +18,64 @@ Via Composer
 $ composer require txiki/events
 ```
 
+## Documentation
+
+Simple examples:
+
+``` php
+require '../vendor/autoload.php';
+
+use Txiki\Events\Event;
+
+$e = new Event();
+
+$e->on('eventName', function($id){
+    return 'ok form '.$id;
+});
+
+$e->on('eventName1', function(){
+    return 'ok form 1';
+});
+
+$e->on('eventName2', function(){
+    return 'ok form 2';
+});
+
+// return 'ok form 999';
+$result = $e->trigger('eventName', [999]);
+
+// return 'ok form 1';
+$result = $e->trigger('eventName1');
+
+// return 'ok form 2';
+$result = $e->trigger('eventName2');
+```
+
+Pass custom class to event:
+```php
+class DummyClass{
+    public function myMethod($foo, $bar)
+    {
+        return 'Out '.$foo.' '.$bar;
+    }
+}
+
+$e->on('myevent', 'DummyClass::myMethod');
+
+// return 'Out foo bar';
+$result = $e->trigger('myevent',['foo', 'bar']);
+```
+
+Remove event:
+```php
+$e->off('myevent');
+```
+
+Get all events array:
+```php
+$eventsTable = $e->table();
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](https://github.com/dieg0v/txiki-events/blob/master/CONTRIBUTING.md) for details.
